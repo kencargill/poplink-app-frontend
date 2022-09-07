@@ -14,7 +14,7 @@ import { Profile } from '../types/profile.types';
 const profile: Profile = {
   _id: '63155369a49f6866c6a1d3ab',
   userId: '631552e0a49f6866c6a1d3a8',
-  slug: 'jessicapage',
+  profileUsername: 'jessicapage',
   profileName: 'Jessica Page',
   profileDescription: 'Freelance Web Developer',
   profilePhotoUrl:
