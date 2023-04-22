@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axios } from '../libs/axios';
 import { User } from '../types/user.types';
 
 export async function createUser(data: Partial<User>) {

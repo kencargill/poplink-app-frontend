@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axios } from '../libs/axios';
 import { Profile } from '../types/profile.types';
 
 interface ProfileUpdateParams {

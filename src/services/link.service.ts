@@ -1,4 +1,5 @@
 import { Link } from '../types/link.types';
+import { axios } from '../libs/axios';
 
 interface LinkUpdateParams {
   id: string;
