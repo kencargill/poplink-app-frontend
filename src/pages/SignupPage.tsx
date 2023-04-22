@@ -1,24 +1,19 @@
-import { Anchor, Paper, Title, Text, Container, Button } from '@mantine/core';
-import { Link, useNavigate } from 'react-router-dom';
-import { loginWithGoogle } from '../services/auth.service';
 import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Anchor, Paper, Title, Text, Container, Button } from '@mantine/core';
+import { signUpWithGoogle } from '../services/auth.service';
 import { AuthContext } from '../context/auth.context';
 import AppContainer from '../components/AppContainer';
 
-export default function LoginPage() {
-  const { user } = useContext(AuthContext);
+export default function SignupPage() {
+  const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    const user = await loginWithGoogle();
-    if (user) {
-      navigate('/');
-    }
-  };
-
-  if (user) {
+  const handleSignup = async () => {
+    const user = await signUpWithGoogle();
+    setUser(user);
     navigate('/');
-  }
+  };
 
   return (
     <AppContainer>
@@ -28,15 +23,16 @@ export default function LoginPage() {
         </Title>
 
         <Paper withBorder shadow="sm" p={30} mt={30} radius="md">
-          <Title align="center">Welcome back!</Title>
+          <Title align="center">Create Account</Title>
+
           <Text color="dimmed" size="lg" align="center" mt={5}>
-            Don't have an account yet?{' '}
+            Already have an account?{' '}
             <Anchor
               component={Link}
-              to="/signup"
+              to="/login"
               className="font-medium !no-underline"
             >
-              Sign up
+              Login
             </Anchor>
           </Text>
 
@@ -45,9 +41,9 @@ export default function LoginPage() {
             mt="xl"
             variant="default"
             size="lg"
-            onClick={handleLogin}
+            onClick={handleSignup}
           >
-            Login with Google
+            Sign up with Google
           </Button>
         </Paper>
       </Container>
