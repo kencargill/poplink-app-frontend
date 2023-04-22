@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Profile } from '../types/profile.types';
 
 interface ProfileUpdateParams {
@@ -13,6 +14,9 @@ export async function getProfileByUsername(profileUsername: string) {}
 
 export async function addProfile(data: Partial<Profile>) {}
 
-export async function updateProfile({ id, data }: ProfileUpdateParams) {}
+export async function updateProfile({ id, data }: ProfileUpdateParams) {
+  const response = await axios.patch<Profile>(`/profiles/${id}`, data);
+  return response.data;
+}
 
 export async function deleteProfile(id: string) {}
