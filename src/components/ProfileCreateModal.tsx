@@ -46,7 +46,7 @@ export default function ProfileCreateModal({ opened, onClose }: Props) {
       if (error.response?.data?.type === 'DuplicateKey') {
         setError(error.response?.data?.message);
       } else {
-        setError('Oops! Somthing went worng!');
+        setError('Oops! Something went wrong!');
       }
     },
   });
