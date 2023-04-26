@@ -10,7 +10,7 @@ export default function ProfileList({ profiles }: Props) {
   return (
     <Stack spacing="xs">
       {profiles.map((profile) => (
-        <ProfileCard profile={profile} />
+        <ProfileCard key={profile._id} profile={profile} />
       ))}
     </Stack>
   );
